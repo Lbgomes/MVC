@@ -1,0 +1,68 @@
+    <link rel="stylesheet" type= "text/css" href="~/css/style-cadastro.css">
+
+
+<main>
+<!-- #region -->
+        <input type="checkbox" id="bt_menu" />
+        <label for="bt_menu" style="font-size: 2em; visibility: ";>&#9776;</label>
+        <nav class="menu" style="position: relative; top: -2.7em;";>
+            <ul>
+                <li><a href='@Url.Action("Index","Home")#botao'>Detalhes do
+                        salão</a>
+
+                <li><a href='@Url.Action("Galeria", "galeria")'>Galeria de
+                        fotos</a></li>
+                <li><a href='@Url.Action("Index","Home")#container'>orçamentos</a>
+                </li>
+                <li><a  href='@Url.Action("Index","Home")#footer'>localização</a>
+                </li>
+                <li><a asp-controller="Eventos" asp-action="Index">Eventos</a></li>
+                @if(string.IsNullOrEmpty(@Model.UsuarioEmail))
+                    { 
+                        <li><a asp-controller="Cliente" asp-action="Login">Login/cadastro</a></li>
+                    }
+                    else
+                    {
+                        <li><a asp-controller="Cliente" asp-action="Logoff">Logoff</a></li>
+                        <li><a asp-controller="Cliente" asp-action="Historico">Pedidos</a></li>
+                    }
+                
+                
+                </li>
+            </ul>
+        </nav>
+    <!-- #endregion -->
+
+<div class="container">
+        <form id="contact" name="formtest" action='@Url.Action("CadastrarCliente", "Cadastro")' method="POST">
+            <h3>Cadastro</h3>
+            <fieldset>
+                <input placeholder="Digite seu nome" name="Nome" type="text" required autofocus>
+            </fieldset>
+            <fieldset>
+                <fieldset>
+                    <input placeholder="Digite sua idade" name="Idade" type="number" required autofocus>
+                </fieldset>
+                <fieldset>
+                    <input placeholder="CPF/CNPJ sem pontos" name="Cpf" maxlength="14" minlength="11" type="number" required autofocus>
+                </fieldset>
+                <fieldset>
+                    <input placeholder="Digite seu e-mail" name="Email" type="email" required>
+                </fieldset>
+                <fieldset>
+                    <input placeholder="Digite seu telefone" name="Telefone" type="tel" required>
+                </fieldset>
+                <fieldset>
+                    <input placeholder="Digite sua senha" name="Senha" type="password"  maxlength="15" minlength="5" required autofocus>
+                </fieldset>
+                <fieldset>
+                        <input placeholder="Confirme sua senha"  type="password" maxlength="15" minlength="5" required autofocus>
+                    </fieldset>
+                <fieldset>
+                    <button  name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+                </fieldset>
+        </form>
+
+
+    </div>
+    </main>

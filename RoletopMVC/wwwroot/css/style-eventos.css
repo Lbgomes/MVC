@@ -1,0 +1,114 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    margin: 0 auto; 
+    background: #ffc6009e;
+}
+/* =============================================
+                header
+================================================*/
+.header {
+    
+    align-items: flex-end;
+    color: white;
+    align-content: center;
+    justify-content: space-around;
+    width: 1690px;
+    background: #171a25;
+    width: 100%;
+}
+.coroa {
+
+    height: 25px;
+    width: 35px;
+
+}
+
+.section-container {
+    margin: 0 auto;
+    max-width: 1360px;
+}
+
+nav ul {
+    margin-top: 0px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 1em;
+    list-style-type: none;
+}
+nav ul > li {
+    width: 100%;
+    text-align: center;
+    padding: 0.4em;
+}
+
+nav ul > li > a {
+	display: block;
+	padding: 0.4em;
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.imagem {
+
+
+    padding-top: 48px;
+    width: 100%;
+}
+/* ================================================================================================
+                                                final header
+===================================================================================================*/
+
+h1{
+    height: 55px;
+    -webkit-text-stroke: 1px rgba(33, 33, 33, 0.88);
+    font-family: 'Open Sans', sans-serif;
+    font-size: 40px;
+    font-weight: 800;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.38;
+    letter-spacing: normal;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.81);
+}
+
+p{  
+    text-align: center;
+    padding-right: 10.000em;
+    padding-left: 10.000em;
+}
+
+.botao-aceitar{
+    display: inline-block;
+    margin: 1.5em;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    background: #63b658;
+    color: white;
+    text-shadow: 2px 2px 2px rgb(73, 153, 87);
+    border-radius: 0.5em;
+    justify-content: center;
+    margin-left: 47.4em;
+    margin-top: 8.4em;
+    width: 4.3em;
+    padding-left: 1.7em;
+}
+.botao-recusar{
+    display: inline-block;
+    margin: 1.5em;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    background: #be3232;
+    color: white;
+    text-shadow: 2px 2px 2px rgb(149, 58, 58);
+    border-radius: 0.5em;
+    justify-content: center;
+    width: 4.3em;
+    padding-left: 1.7em;
+}

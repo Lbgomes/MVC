@@ -1,0 +1,238 @@
+﻿
+    @model RoletopMVC.ViewModel.AgendamentoViewModel
+        <link rel="stylesheet" type= "text/css" href="~/css/style.css">
+
+    <main>
+        <!-- #region -->
+        <input type="checkbox" id="bt_menu" />
+        <label for="bt_menu" style="font-size: 2em; visibility: ";>&#9776;</label>
+        <nav class="menu" style="position: relative; top: -2.7em;";>
+            <ul>
+                <li><a href='@Url.Action("Index","Home")#botao'>Detalhes do
+                        salão</a>
+
+                <li><a href='@Url.Action("Galeria", "galeria")'>Galeria de
+                        fotos</a></li>
+                <li><a href='@Url.Action("Index","Home")#container'>orçamentos</a>
+                </li>
+                <li><a  href='@Url.Action("Index","Home")#footer'>localização</a>
+                </li>
+                <li><a asp-controller="Eventos" asp-action="Eventos">Eventos</a></li>
+                @if(string.IsNullOrEmpty(@Model.UsuarioEmail))
+                    { 
+                        <li><a asp-controller="Cliente" asp-action="Login">Login/cadastro</a></li>
+                    }
+                    else
+                    {
+                        <li><a asp-controller="Cliente" asp-action="Logoff">Logoff</a></li>
+                        <li><a asp-controller="Cliente" asp-action="Historico">Pedidos</a></li>
+                    }
+                
+                
+                </li>
+            </ul>
+        </nav>
+        <!-- #endregion -->
+
+    <img src="img/foto-role-pronta.jpg" id="imagem" style=" width: 100%; position: relative; top: -2.7em;">
+    
+    <br>
+    <br>
+    <br>
+
+
+    <h1 id="titulo">NOSSOS EVENTOS</h1>
+    <br>
+    <br>
+    <br>
+    <div class="flex-group">
+
+        <div class="categorias-evento">
+            <a href=eventos-shows.html class="img-show"><img src=img/shows.jpg title="shows" de energia a diesel
+                    alt="foto do show" width=”300″ height=”250″ class="img-show" /></a>
+            <p class="categoria1">SHOWS</p>
+        </div>
+        <div class="categorias-evento">
+            <a href=eventos-shows.html class="img-show"> <img src="img/festa debutante.jpg" alt="foto de festas"
+                    title="festas" height="250" width="300" class="img-show"></a>
+            <p class="categoria2">FESTAS</p>
+        </div>
+        <div class="categorias-evento">
+            <a href=eventos-casamento.html class="img-show"><img
+                    src="img/espaco-casamento-praia-florianopolis-jurere-sc.jpg" alt="foto casamentos" title="casamento"
+                    width:="300" height:="250" class="img-show"></a>
+
+            <p class="categoria3">CASAMENTO</p>
+        </div>
+        <div class="categorias-evento">
+            <a href=eventos-shows.html class="img-show"><img src="img/corporativo.jfif" alt="foto de evento corporativo"
+                    title="corporativo" height="250" width="300" class="img-show"></a>
+
+            <p class="categoria4">CORPORATIVO</p>
+        </div>
+    </div>
+    <a href="pg-principal.html#container" id="botao">
+        MONTE SEU PROPRIO
+    </a>
+    <!-- ================================================================================================
+                                        fundadores
+     ===============================================================================================-->
+
+    <div class="fundadores-sobre-nos" id="fundadores-sobre-nos">
+        <div class="fundadores2">
+            <h1 class="fundadores-txt">FUNDADORES</h1>
+            <div class="fundadores">
+                <div class="alexandre">
+                    <img src="img/tecopronto2.jpg" alt="alexandre" width="150" height="150">
+                    <p>Alexandre <br>Fukaya</p>
+                </div>
+                <div class="cesar">
+                    <img src="img/tico.jpg" alt="cesar" width="150" height="150">
+                    <p>Cesar <br>Sportore</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="detalhes">
+            <h1 class="detalhes-txt">DETALHES DO SALÃO</h1>
+            <ul>
+                <div class="detalhes-li1">
+                    <div class="li1">
+                        <li class="li2">Sistema contra fogo</li>
+                        <li class="li2">Sistema de segurança</li>
+                        <li class="li2">Acesso para deficientes</li>
+                        <li class="li2">Rede wifi</li>
+                    </div>
+                    <div>
+                        <li class="li2">Convênio com estacionamentos</li>
+                        <li class="li2">Sistema de ventilaçã</li>
+                        <li class="li2">Ar condicionado</li>
+                        <li class="li2"> Banheiros exclusivos</li>
+                    </div>
+                </div>
+            </ul>
+        </div>
+    </div>
+    <!-- ================================================================================================
+                                                GALERIA DE FOTOS
+     ===============================================================================================-->
+
+    <br>
+    <br>
+    <br>
+
+
+    <h1 id="titulo2">GALERIA DE FOTOS</h1>
+    <h3 class="experiencia">#experienciaroletop</h3>
+    <div class="flex-group">
+
+
+        <img src="img/foto4.jpg" alt="foto do show" title="shows" height="250" width="300">
+
+
+        <img src="img/foto1certa.jpg" alt="foto de festas" title="festas" height="250" width="300">
+
+        <img src="img/foto2certa.jpg" alt="foto casamentos" title="casamento" height="250" width="300">
+
+        <img src="img/foto3.jpg" alt="foto de evento corporativo" title="corporativo" height="250" width="300">
+    </div>
+    <p><a href="galeria.html" class="galeria-foto"> VEJA MAIS</a></p>
+
+    <!-- ================================================================================================
+                                                    orçamentos
+            ===============================================================================================-->
+
+    <div id="container">
+        <form class="contato" action='@Url.Action("Registrar", "Home")' method="post">
+            <h3 class="reserva">Reserve seu evento</h3>
+            <h4>Iremos analisar seu evento dentro de 72 horas</h4>
+            <fieldset>
+                <input placeholder="Digite seu nome"  value="@Model.Cliente.Nome" name="Nome" type="text" required>
+            </fieldset>
+            <fieldset>
+                <input placeholder="Digite o nome do evento"  name="NomeEvento" type="text" required>
+            </fieldset>
+        <fieldset>
+                    <input placeholder="Digite seu e-mail" value="@Model.Cliente.Email" name="Email" type="email" required>
+                </fieldset>
+
+            <fieldset>
+                <input placeholder="Digite seu telefone" value="@Model.Cliente.Telefone" name="Telefone" type="tel" required>
+            </fieldset>
+            <fieldset>
+                    <input placeholder="CPF/CNPJ sem pontos" value="@Model.Cliente.CpfCnpj" name="CpfCnpj" maxlength="14" minlength="11" type="number" required >
+                </fieldset>
+            <div class="diaApublico">
+
+                <div class="diaEhorario">
+                    <div class="form">
+                        <div class="dia-hora">
+                            <div class="dia">
+                                <p class="dia-txt">dia</p>
+                                <label for="date" class="calendario"></label>
+                                <input type="date" id="data" name="calendario" required>
+                            </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pagamentosEacrescimos">
+                        <div class="acrescimos">
+                            <p>acrescimos</p>
+                            <div class="luz-som">
+                                <div class="luz">
+                                    @foreach(var Servicos in Model.Servicos)
+                                    {
+                                        <input type="checkbox" id="Servicos.Key" name="ServicosAdicionais" value= "@Servicos.Key" >
+                                        <label for="@Servicos.Key">@Servicos.Key</label>
+
+                                    }
+                                </div>
+                        <div class="pagamento">
+                            <p class="forma">Forma de pagamendo:</p>
+                            <select name="FormaPagamento" id="paga">
+                                <option value="" disabled selected>Formas De Pagamento</option>
+                                @foreach(var Pagamentos in Model.FormasDePagamento)
+                                    {
+                                        <option value="@Pagamentos" >@Pagamentos</option>
+
+                                    }</select>
+                        </div>
+                        <div class="pagamento">
+                            <p>Público ou privado</p>
+                            <select name="pubpriv" id="select2" required>
+                            <option>Publico</option>
+                            <option>Privado</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                    <fieldset>
+                    </div>
+                    <textarea placeholder="Descreva seu evento" name="informacoes" required></textarea>
+                </fieldset>
+                <fieldset>
+                    <button name="enviar" type="submit" id="contact-submit" data-submit="...Sending">ENVIAR</button>
+                </fieldset>
+        </form>
+    </div>
+
+    <div id="footer">
+        <footer>
+            <br />
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.8869961505543!2d-46.648477085071065!3d-23.53656648469522!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5843deade6e3%3A0x124f377d06c7e71f!2sAlameda+Bar%C3%A3o+de+Limeira%2C+539+-+Campos+El%C3%ADseos%2C+S%C3%A3o+Paulo+-+SP%2C+01202-001!5e0!3m2!1sen!2sbr!4v1550223658410"
+                frameborder="0" style="border:0" position: relative; top: 1em; left: 5em; class="mapa"></iframe>
+
+            <div>
+                <address class="endereco">
+                    Avenida Barão de Limeira, 539 - Campos Elíseos - SP roletop@email.com (11) 1234 6789
+                </address>
+                <p class="murilo"> Criado e desenvolvido por: Murilo Gomes</p>
+
+
+            </div>
+        </footer>
+    </div>
+    
+    </main>

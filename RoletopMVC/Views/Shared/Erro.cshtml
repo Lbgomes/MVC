@@ -1,0 +1,42 @@
+@model RoletopMVC.ViewModel.RespostaViewModel
+    <link rel="stylesheet" type= "text/css" href="~/css/style-login.css">
+
+<main>
+    <!-- #region -->
+        <input type="checkbox" id="bt_menu" />
+        <label for="bt_menu" style="font-size: 2em; visibility: ";>&#9776;</label>
+        <nav class="menu" style="position: relative; top: -2.7em;";>
+            <ul>
+                <li><a href='@Url.Action("Index","Home")#botao'>Detalhes do
+                        salão</a>
+
+                <li><a href='@Url.Action("Galeria", "galeria")'>Galeria de
+                        fotos</a></li>
+                <li><a href='@Url.Action("Index","Home")#container'>orçamentos</a>
+                </li>
+                <li><a  href='@Url.Action("Index","Home")#footer'>localização</a>
+                </li>
+                <li><a href="pg-principal.html" #>Perguntas</a></li>
+                @if(string.IsNullOrEmpty(@Model.UsuarioEmail))
+                    { 
+                        <li><a asp-controller="Cliente" asp-action="Login">Login/cadastro</a></li>
+                    }
+                    else
+                    {
+                        <li><a asp-controller="Cliente" asp-action="Logoff">Logoff</a></li>
+                        <li><a asp-controller="Cliente" asp-action="Historico">Pedidos</a></li>
+                    }
+                
+                
+                </li>
+            </ul>
+        </nav>
+        <!-- #endregion -->
+    <h2> 
+        @ViewData["Action"] deu ruim!
+    </h2>
+    <p>
+        @Model.Mensagem 
+    </p>
+    <div class="background"></div>
+</main>
